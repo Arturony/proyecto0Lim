@@ -113,7 +113,7 @@ public class Interpreter   {
 				{
 					throw new Exception("The variable doesn't start with a letter");
 				}
-				content = content.substring(content.indexOf(block), content.length());
+				content = content.substring(content.indexOf(block)+block.length(), content.length());
 			}
 			String[] blocks = content.split(block);
 			for(String block : blocks) {
