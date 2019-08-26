@@ -1,15 +1,7 @@
 package uniandes.lym.robot.control;
 
-import java.lang.reflect.InvocationTargetException;
 import java.util.Date;
 import java.util.HashMap;
-
-import javax.print.attribute.standard.OutputDeviceAssigned;
-import javax.swing.SwingUtilities;
-
-import com.sun.org.apache.xerces.internal.impl.xpath.regex.ParseException;
-import com.sun.xml.internal.ws.api.databinding.DatabindingConfig;
-
 import uniandes.lym.robot.kernel.*;
 
 
@@ -133,7 +125,7 @@ public class Interpreter   {
 		}
 		catch (Exception e) 
 		{
-			output.append("Error!!! " + e.getMessage());
+			output.append("Error!!! " + e.getMessage() + "\n");
 		}
 		Date finish = new Date();
 		output.append("Progam finished in " + (finish.getTime() - start.getTime()) + " ms");

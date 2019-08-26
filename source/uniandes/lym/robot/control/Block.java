@@ -1,7 +1,5 @@
 package uniandes.lym.robot.control;
 
-import com.sun.org.apache.xerces.internal.impl.xpath.regex.ParseException;
-
 import uniandes.lym.robot.kernel.RobotWorld;
 
 public class Block {
@@ -27,7 +25,7 @@ public class Block {
 				try {
 					interpreter.getVariables().put(param[0], Integer.parseInt(param[1]));
 				} 
-				catch (ParseException e) {
+				catch (Exception e) {
 					throw new Exception("Please inset a number in the parameters");
 				}
 				output.append("Variable " + param[0] + " assingned the value of " + interpreter.getVariables().get(param[0]) + "\n");
@@ -101,11 +99,12 @@ public class Block {
 			else if(ins[i].startsWith("Face"))
 			{
 				ins[i] = ins[i].split("(?<=Face)")[1];
-				output.append("Facing " + ins[i] + " direction");
+				output.append("Facing " + ins[i] + " direction\n");
 				interpreter.getWorld().face(ins[i]);
 			}
 			else if(ins[i].startsWith("Put"))
 			{
+				ins[i] = ins[i].split("(?<=Put)")[1];
 				String[] par = ins[i].split(",");
 				int n;
 				try
@@ -124,7 +123,7 @@ public class Block {
 				if(par[0].startsWith("B"))
 				{
 					interpreter.getWorld().putBalloons(n);
-					output.append("Putting " + n + " balloons");
+					output.append("Putting " + n + " balloons\n");
 				}
 				else if(par[0].startsWith("C"))
 				{
